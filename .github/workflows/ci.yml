@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 permissions:
   id-token: write
-  contents: read
+  contents: rea
   checks: write
 jobs:
   e2e:
