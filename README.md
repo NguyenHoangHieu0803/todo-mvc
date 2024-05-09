@@ -8,7 +8,7 @@
 - [ ] install firefox browser
 ## How to run
 ```shell
-$ mvn clean test
+$ mvn test
 ```
 ## How to write
 ### project structure
