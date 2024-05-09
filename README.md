@@ -1,11 +1,11 @@
 # TODO MVC Project
 
 ## Setup
-- [] setup JDK-21
-- [] setup maven
-- [] open project with intelliJ
-- [] install chorme browser
-- [] install firefox browser
+- [ ] setup JDK-21
+- [ ] setup maven
+- [ ] open project with intelliJ
+- [ ] install chorme browser
+- [ ] install firefox browser
 ## How to run
 ```shell
 $ mvn clean test
