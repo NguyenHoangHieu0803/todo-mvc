@@ -42,6 +42,10 @@ public class Browser {
     }
 
     public static void captureScreenShot(String tcName) {
+        if (driver == null) {
+            driver = new ChromeDriver();
+        }
+
         TakesScreenshot scrShot = ((TakesScreenshot) driver);
         File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 
