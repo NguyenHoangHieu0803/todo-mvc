@@ -1,5 +1,6 @@
-package com.tvn.common;
+package common;
 
+import com.beust.ah.A;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -27,7 +28,7 @@ public class Browser {
             case "chrome" -> {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(chromeOptions);
             }
             case "safari" -> driver = new SafariDriver();
             case "edge" ->  driver = new EdgeDriver();
@@ -42,10 +43,6 @@ public class Browser {
     }
 
     public static void captureScreenShot(String tcName) {
-        if (driver == null) {
-            driver = new ChromeDriver();
-        }
-
         TakesScreenshot scrShot = ((TakesScreenshot) driver);
         File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 
@@ -77,21 +74,21 @@ public class Browser {
     public static String getText(By locator) {
         return driver.findElement(locator).getText();
     }
-
-    public static Boolean isDisplayed(By locator) {
+    public static String getCurrentUrl(){
+        return driver.getCurrentUrl();
+    }
+    public static boolean isDisplayed(By locator){
         return driver.findElements(locator).size()>0;
     }
-    public static void hover(By locator ) {
+    public static void hover(By locator){
         actions.moveToElement(driver.findElement(locator)).perform();
     }
-    public static WebElement getElement(By locator) {
+    public static WebElement getElement(By locator){
         return driver.findElement(locator);
     }
-
-    public static void doubleClick (By locator) {
+    public static void doubleClick(By locator){
         actions.doubleClick(driver.findElement(locator)).perform();
     }
-
     public static void executeScript(String script, Object... arguments) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(script, arguments);

@@ -1,9 +1,12 @@
-package com.tvn.base;
+package base;
 
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
-import static com.tvn.common.Browser.captureScreenShot;
+import static common.Browser.captureScreenShot;
+import static common.Browser.closeBrowser;
+
 
 public class TestBase {
     @AfterMethod(alwaysRun = true)

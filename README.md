@@ -1,24 +1,26 @@
 # TODO MVC Project
 
 ## Setup
-- [ ] setup JDK-21
+- [ ] setup JDK-17
 - [ ] setup maven
 - [ ] open project with intelliJ
-- [ ] install chorme browser
+- [ ] install chrome browser
 - [ ] install firefox browser
 ## How to run
 ```shell
-$ mvn test
+$ mvn clean test
 ```
+
 ## How to write
 ### project structure
 - base
-  - [TestBase.java](src%2Ftest%2Fjava%2Fcom%2Ftvn%2Fbase%2FTestBase.java)
+  - [TestBase.java](src%2Ftest%2Fjava%2Fbase%2FTestBase.java)
 - common
-  - [Browser.java](src%2Ftest%2Fjava%2Fcom%2Ftvn%2Fcommon%2FBrowser.java)
+  - [Browser.java](src%2Ftest%2Fjava%2Fcommon%2FBrowser.java)
 - pages
-  - [ToDoMVCPage.java](src%2Ftest%2Fjava%2Fcom%2Ftvn%2Fpages%2FToDoMVCPage.java)
+  - [ToDoMVCPage.java](src%2Ftest%2Fjava%2Fpages%2FToDoMVCPage.java)
 - testcases
-  - [ToDoMVCTest.java](src%2Ftest%2Fjava%2Fcom%2Ftvn%2Ftestcases%2FToDoMVCTest.java)
+  - [ToDoMVCTest.java](src%2Ftest%2Fjava%2Ftestcases%2FToDoMVCTest.java)
+
 ### test plan
-- [todomvc-testplan.xml](todomvc-testplan.xml)
+- [todomvn-testplan.xml](todomvn-testplan.xml)

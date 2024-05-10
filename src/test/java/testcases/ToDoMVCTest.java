@@ -1,25 +1,25 @@
-package com.tvn.testcases;
+package testcases;
 
-
-import com.tvn.base.TestBase;
-import com.tvn.common.Browser;
-import com.tvn.pages.ToDoMVCPage;
+import base.TestBase;
+import common.Browser;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.ToDoMVCPage;
 
 public class ToDoMVCTest extends TestBase {
     ToDoMVCPage toDoMVCPage;
+
     @BeforeClass
-    void setUp () {
+    void setup(){
         Browser.openBrowser("chrome");
         toDoMVCPage = new ToDoMVCPage();
         toDoMVCPage.open();
     }
 
     @Test
-    void verifyUserAbleToCreateNewTask () {
+    void verifyUserAbleCreateNewTask(){
         String taskName = "task 1";
         int itemLeftBefore = toDoMVCPage.getItemLeft();
         toDoMVCPage.createTask(taskName);
@@ -35,11 +35,10 @@ public class ToDoMVCTest extends TestBase {
 
         toDoMVCPage.filterTask("Completed");
         Assert.assertFalse(toDoMVCPage.isTaskDisplayed(taskName));
-
     }
 
     @Test
-    void verifyUserIsAbleToCheckOnComplete () {
+    void verifyUserAbleMarkCompleteTask(){
         String taskName = "task 1";
         toDoMVCPage.filterTask("All");
         toDoMVCPage.createTask(taskName);
@@ -55,11 +54,9 @@ public class ToDoMVCTest extends TestBase {
 
         toDoMVCPage.filterTask("Completed");
         Assert.assertTrue(toDoMVCPage.isTaskDisplayed(taskName));
-
     }
-
     @Test
-    void verifyUserAbleDeleteTask() {
+    void verifyUserAbleDeleteTask(){
         String taskName = "task 1";
         toDoMVCPage.filterTask("All");
         toDoMVCPage.createTask(taskName);
@@ -74,7 +71,7 @@ public class ToDoMVCTest extends TestBase {
     }
 
     @Test
-    void verifyUserAbleToChangeTaskName () {
+    void verifyUserAbleChangeTaskName(){
         String taskName = "task 1";
         toDoMVCPage.filterTask("All");
         toDoMVCPage.createTask(taskName);
@@ -84,13 +81,12 @@ public class ToDoMVCTest extends TestBase {
 
         toDoMVCPage.updateTaskName(taskName,"task 2");
         Assert.assertTrue(toDoMVCPage.isTaskDisplayed("task 2"));
-
         int itemLeftAfter = toDoMVCPage.getItemLeft();
         Assert.assertEquals(itemLeftBefore,itemLeftAfter);
     }
 
     @AfterClass
-    void tearDown() {
+    void tearDown(){
         Browser.closeBrowser();
     }
 }

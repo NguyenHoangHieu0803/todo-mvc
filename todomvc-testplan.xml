@@ -1,7 +1,8 @@
 <suite name="todo-mvc">
     <test name="chrome">
+        <parameter name="env" value="staging"/>
         <classes>
-            <class name="com.tvn.testcases.ToDoMVCTest"/>
+            <class name="testcases.ToDoMVCTest"/>
         </classes>
     </test>
 </suite>
